@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "63176112-8c62-438a-aa61-07afed50cb4f",
 		"name": "H8 Course: REST API Python",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "15389470"
 	},
 	"item": [
@@ -60,7 +60,17 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "http://{{host}}:{{port}}/menu"
+						"url": {
+							"raw": "http://{{host}}:{{port}}/menu",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"menu"
+							]
+						}
 					},
 					"response": []
 				},
@@ -95,7 +105,17 @@
 					"request": {
 						"method": "POST",
 						"header": [],
-						"url": "http://{{host}}:{{port}}/menu"
+						"url": {
+							"raw": "http://{{host}}:{{port}}/menu",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"menu"
+							]
+						}
 					},
 					"response": []
 				},
@@ -149,7 +169,17 @@
 								}
 							}
 						},
-						"url": "http://{{host}}:{{port}}/menu"
+						"url": {
+							"raw": "http://{{host}}:{{port}}/menu",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"menu"
+							]
+						}
 					},
 					"response": []
 				},
@@ -204,7 +234,17 @@
 								}
 							}
 						},
-						"url": "http://{{host}}:{{port}}/menu"
+						"url": {
+							"raw": "http://{{host}}:{{port}}/menu",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"menu"
+							]
+						}
 					},
 					"response": []
 				},
@@ -245,7 +285,12 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "{{createdMenuURL}}"
+						"url": {
+							"raw": "{{createdMenuURL}}",
+							"host": [
+								"{{createdMenuURL}}"
+							]
+						}
 					},
 					"response": []
 				},
@@ -279,7 +324,18 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "http://{{host}}:{{port}}/menu/{{wrongMenuID}}"
+						"url": {
+							"raw": "http://{{host}}:{{port}}/menu/{{wrongMenuID}}",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"menu",
+								"{{wrongMenuID}}"
+							]
+						}
 					},
 					"response": []
 				},
@@ -313,7 +369,18 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "http://{{host}}:{{port}}/menu/{{badURLParam}}"
+						"url": {
+							"raw": "http://{{host}}:{{port}}/menu/{{badURLParam}}",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"menu",
+								"{{badURLParam}}"
+							]
+						}
 					},
 					"response": []
 				},
@@ -344,7 +411,18 @@
 					"request": {
 						"method": "PUT",
 						"header": [],
-						"url": "http://{{host}}:{{port}}/menu/{{badURLParam}}"
+						"url": {
+							"raw": "http://{{host}}:{{port}}/menu/{{badURLParam}}",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"menu",
+								"{{badURLParam}}"
+							]
+						}
 					},
 					"response": []
 				},
@@ -384,7 +462,18 @@
 								}
 							}
 						},
-						"url": "http://{{host}}:{{port}}/menu/{{wrongMenuID}}"
+						"url": {
+							"raw": "http://{{host}}:{{port}}/menu/{{wrongMenuID}}",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"menu",
+								"{{wrongMenuID}}"
+							]
+						}
 					},
 					"response": []
 				},
@@ -419,7 +508,12 @@
 					"request": {
 						"method": "PUT",
 						"header": [],
-						"url": "{{createdMenuURL}}"
+						"url": {
+							"raw": "{{createdMenuURL}}",
+							"host": [
+								"{{createdMenuURL}}"
+							]
+						}
 					},
 					"response": []
 				},
@@ -473,7 +567,12 @@
 								}
 							}
 						},
-						"url": "{{createdMenuURL}}"
+						"url": {
+							"raw": "{{createdMenuURL}}",
+							"host": [
+								"{{createdMenuURL}}"
+							]
+						}
 					},
 					"response": []
 				},
@@ -517,7 +616,12 @@
 								}
 							}
 						},
-						"url": "{{createdMenuURL}}"
+						"url": {
+							"raw": "{{createdMenuURL}}",
+							"host": [
+								"{{createdMenuURL}}"
+							]
+						}
 					},
 					"response": []
 				},
@@ -548,7 +652,18 @@
 					"request": {
 						"method": "DELETE",
 						"header": [],
-						"url": "http://{{host}}:{{port}}/menu/{{badURLParam}}"
+						"url": {
+							"raw": "http://{{host}}:{{port}}/menu/{{badURLParam}}",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"menu",
+								"{{badURLParam}}"
+							]
+						}
 					},
 					"response": []
 				},
@@ -579,7 +694,18 @@
 					"request": {
 						"method": "DELETE",
 						"header": [],
-						"url": "http://{{host}}:{{port}}/menu/{{wrongMenuID}}"
+						"url": {
+							"raw": "http://{{host}}:{{port}}/menu/{{wrongMenuID}}",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"menu",
+								"{{wrongMenuID}}"
+							]
+						}
 					},
 					"response": []
 				},
@@ -610,7 +736,1075 @@
 					"request": {
 						"method": "DELETE",
 						"header": [],
-						"url": "{{createdMenuURL}}"
+						"url": {
+							"raw": "{{createdMenuURL}}",
+							"host": [
+								"{{createdMenuURL}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "v1.1 - Database Stored",
+			"item": [
+				{
+					"name": "Get Initial Menu (Empty)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code should be 200\", () => {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response header Content-Type should be application/json\", () => {\r",
+									"  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body data should returning an empty array\", () => {\r",
+									"  pm.expect(pm.response.json()).to.be.an(\"array\").and.lengthOf(0);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{host}}:{{port}}/menu",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"menu"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Menu with Empty Payload",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code should be 415\", () => {\r",
+									"  pm.response.to.have.status(415);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response Content-Type header should be application/json\", () => {\r",
+									"  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body data should returning an error message within an object with only one property and key `message`\", () => {\r",
+									"  const bodyJSON = pm.response.json();\r",
+									"  pm.expect(bodyJSON).to.be.an(\"object\");\r",
+									"  pm.expect(Object.keys(bodyJSON).length).to.be.equal(1);\r",
+									"  pm.expect(bodyJSON).to.have.own.property(\"message\");\r",
+									"  pm.expect(bodyJSON.message).to.be.a(\"string\").and.not.empty;\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://{{host}}:{{port}}/menu",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"menu"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Menu with Bad Payload",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code should be 400\", () => {\r",
+									"  pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response Content-Type header should be application/json\", () => {\r",
+									"  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body data should returning an object contain 2 properties: `errors` and `message`\", () => {\r",
+									"  const bodyJSON = pm.response.json();\r",
+									"  pm.expect(bodyJSON).to.be.an(\"object\");\r",
+									"  pm.expect(Object.keys(bodyJSON).length).to.be.equal(2);\r",
+									"  pm.expect(bodyJSON).to.have.own.property(\"message\");\r",
+									"  pm.expect(bodyJSON).to.have.own.property(\"errors\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Property `error` should returning an object contain explanation of each errors that occur\", () => {\r",
+									"  const errJSON = pm.response.json().errors;\r",
+									"  pm.expect(errJSON).to.be.an(\"object\");\r",
+									"  pm.expect(Object.keys(errJSON).length).to.be.above(0);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Property `message` should returning an error message\", () => {\r",
+									"  pm.expect(pm.response.json().message).to.be.a(\"string\").and.not.empty;\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": 0,\r\n  \"price\": \"1000\",\r\n  \"variations\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/menu",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"menu"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Menu with Valid Payload",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code should be 201\", () => {\r",
+									"  pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response Content-Type header should be application/json\", () => {\r",
+									"  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response header should contain a Location URL redirecting to the created data\", () => {\r",
+									"  pm.response.to.have.header(\"Location\");\r",
+									"  pm.collectionVariables.set(\"createdMenuURL\", pm.response.headers.get(\"Location\"));\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response should not returning any body data\", () => {\r",
+									"  pm.response.to.have.body(\"\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Americano\",\r\n  \"price\": 10000,\r\n  \"variations\": [\r\n    \"Hot\",\r\n    \"Ice\"\r\n  ],\r\n  \"category\": \"drink\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/menu",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"menu"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Another Menu with Valid Payload",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code should be 201\", () => {\r",
+									"  pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response Content-Type header should be application/json\", () => {\r",
+									"  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response header should contain a Location URL redirecting to the created data\", () => {\r",
+									"  pm.response.to.have.header(\"Location\");\r",
+									"  pm.collectionVariables.set(\"createdMenuURL\", pm.response.headers.get(\"Location\"));\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response should not returning any body data\", () => {\r",
+									"  pm.response.to.have.body(\"\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Fried Chicken\",\r\n  \"price\": 15000,\r\n  \"variations\": [\r\n    \"Breast\",\r\n    \"Drumstick\",\r\n    \"Thigh\",\r\n    \"Wing\"\r\n  ],\r\n  \"category\": \"food\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/menu",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"menu"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Menu with Used Name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code should be 409\", () => {\r",
+									"  pm.response.to.have.status(409);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response Content-Type header should be application/json\", () => {\r",
+									"  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body data should returning an error message within an object with only one property and key `message`\", () => {\r",
+									"  const bodyJSON = pm.response.json();\r",
+									"  pm.expect(bodyJSON).to.be.an(\"object\");\r",
+									"  pm.expect(Object.keys(bodyJSON).length).to.be.equal(1);\r",
+									"  pm.expect(bodyJSON).to.have.own.property(\"message\");\r",
+									"  pm.expect(bodyJSON.message).to.be.a(\"string\").and.not.empty;\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Americano\",\r\n  \"price\": 10000,\r\n  \"variations\": [\r\n    \"Arabica\",\r\n    \"Robusta\"\r\n  ],\r\n  \"category\": \"drink\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/menu",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"menu"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Menu",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code should be 200\", () => {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response header Content-Type should be application/json\", () => {\r",
+									"  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body data should returning an array contain only 2 items\", () => {\r",
+									"  pm.expect(pm.response.json()).to.be.an(\"array\").and.lengthOf(2);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Each array item should contain object with only specified properties\", () => {\r",
+									"  const reqProps = JSON.parse(pm.collectionVariables.get(\"requiredProps\"));\r",
+									"  pm.response.json().forEach((item) => {\r",
+									"    pm.expect(item).to.be.an(\"object\");\r",
+									"    pm.expect(Object.keys(item).length).to.equal(reqProps.length);\r",
+									"    reqProps.forEach((prop) => {\r",
+									"      pm.expect(item).to.have.own.property(prop);\r",
+									"    });\r",
+									"  });\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Each object's property should have correct data type and not empty value\", () => {\r",
+									"  pm.response.json().forEach((item) => {\r",
+									"    pm.expect(item.id_menu).to.be.a(\"number\").and.not.equals(0);\r",
+									"    pm.expect(item.name).to.be.a(\"string\").and.not.empty;\r",
+									"    pm.expect(item.price).to.be.a(\"number\");\r",
+									"    pm.expect(item.variations).to.be.a(\"array\").and.length.above(0);\r",
+									"    pm.expect(item.category).to.be.a(\"string\").and.not.empty;\r",
+									"  });\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{host}}:{{port}}/menu",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"menu"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Last Created Menu",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code should be 200\", () => {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response header Content-Type should be application/json\", () => {\r",
+									"  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body data should returning an object contain only specified properties\", () => {\r",
+									"  const bodyJSON = pm.response.json();\r",
+									"  const reqProps = JSON.parse(pm.collectionVariables.get(\"requiredProps\"));\r",
+									"  console.log(reqProps.length, reqProps);\r",
+									"  pm.expect(bodyJSON).to.be.an(\"object\");\r",
+									"  pm.expect(Object.keys(bodyJSON).length).to.equal(reqProps.length);\r",
+									"  reqProps.forEach((prop) => {\r",
+									"    pm.expect(bodyJSON).to.have.own.property(prop);\r",
+									"  });\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{createdMenuURL}}",
+							"host": [
+								"{{createdMenuURL}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Menu with Wrong ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code should be 404\", () => {\r",
+									"  pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response header Content-Type should be application/json\", () => {\r",
+									"  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response should not returning any body data\", () => {\r",
+									"  pm.response.to.have.body(\"\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{host}}:{{port}}/menu/{{wrongMenuID}}",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"menu",
+								"{{wrongMenuID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Menu with Bad Parameter",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code should be 404\", () => {\r",
+									"  pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response header Content-Type should be application/json\", () => {\r",
+									"  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response should not returning any body data\", () => {\r",
+									"  pm.response.to.have.body(\"\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{host}}:{{port}}/menu/{{badURLParam}}",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"menu",
+								"{{badURLParam}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Menu with Empty Parameter",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code should be 405\", () => {\r",
+									"  pm.response.to.have.status(405);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response header Content-Type should be application/json\", () => {\r",
+									"  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response should have Allow header\", () => {\r",
+									"  pm.response.to.have.header(\"Allow\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body data should returning an error message within an object with only one property and key `message`\", () => {\r",
+									"  const bodyJSON = pm.response.json();\r",
+									"  pm.expect(bodyJSON).to.be.an(\"object\");\r",
+									"  pm.expect(Object.keys(bodyJSON).length).to.be.equal(1);\r",
+									"  pm.expect(bodyJSON).to.have.own.property(\"message\");\r",
+									"  pm.expect(bodyJSON.message).to.be.a(\"string\").and.not.empty;\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://{{host}}:{{port}}/menu/",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"menu",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Menu with Bad Parameter",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code should be 404\", () => {\r",
+									"  pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response header Content-Type should be application/json\", () => {\r",
+									"  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response should not returning any body data\", () => {\r",
+									"  pm.response.to.have.body(\"\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://{{host}}:{{port}}/menu/{{badURLParam}}",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"menu",
+								"{{badURLParam}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Menu with Wrong ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code should be 404\", () => {\r",
+									"  pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response header Content-Type should be application/json\", () => {\r",
+									"  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response should not returning any body data\", () => {\r",
+									"  pm.response.to.have.body(\"\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Fries\",\r\n  \"price\": 10000,\r\n  \"variations\": [\r\n    \"Salty\",\r\n    \"Paprika\",\r\n    \"Cheesy\"\r\n  ],\r\n  \"category\": \"snack\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/menu/{{wrongMenuID}}",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"menu",
+								"{{wrongMenuID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Menu with Empty Payload",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code should be 415\", () => {\r",
+									"  pm.response.to.have.status(415);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response Content-Type header should be application/json\", () => {\r",
+									"  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body data should returning an error message within an object with only one property and key `message`\", () => {\r",
+									"  const bodyJSON = pm.response.json();\r",
+									"  pm.expect(bodyJSON).to.be.an(\"object\");\r",
+									"  pm.expect(Object.keys(bodyJSON).length).to.be.equal(1);\r",
+									"  pm.expect(bodyJSON).to.have.own.property(\"message\");\r",
+									"  pm.expect(bodyJSON.message).to.be.a(\"string\").and.not.empty;\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{createdMenuURL}}",
+							"host": [
+								"{{createdMenuURL}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Menu with Bad Payload",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code should be 400\", () => {\r",
+									"  pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response Content-Type header should be application/json\", () => {\r",
+									"  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body data should returning an object contain 2 properties: `errors` and `message`\", () => {\r",
+									"  const bodyJSON = pm.response.json();\r",
+									"  pm.expect(bodyJSON).to.be.an(\"object\");\r",
+									"  pm.expect(Object.keys(bodyJSON).length).to.be.equal(2);\r",
+									"  pm.expect(bodyJSON).to.have.own.property(\"message\");\r",
+									"  pm.expect(bodyJSON).to.have.own.property(\"errors\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Property `errors` should returning an object contain explanation of each errors that occur\", () => {\r",
+									"  const errJSON = pm.response.json().errors;\r",
+									"  pm.expect(errJSON).to.be.an(\"object\");\r",
+									"  pm.expect(Object.keys(errJSON).length).to.be.above(0);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Property `message` should returning an error message\", () => {\r",
+									"  pm.expect(pm.response.json().message).to.be.a(\"string\").and.not.empty;\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": 0,\r\n  \"price\": \"1000\",\r\n  \"variations\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{createdMenuURL}}",
+							"host": [
+								"{{createdMenuURL}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Menu with Used Name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code should be 409\", () => {\r",
+									"  pm.response.to.have.status(409);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response Content-Type header should be application/json\", () => {\r",
+									"  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body data should returning an error message within an object with only one property and key `message`\", () => {\r",
+									"  const bodyJSON = pm.response.json();\r",
+									"  pm.expect(bodyJSON).to.be.an(\"object\");\r",
+									"  pm.expect(Object.keys(bodyJSON).length).to.be.equal(1);\r",
+									"  pm.expect(bodyJSON).to.have.own.property(\"message\");\r",
+									"  pm.expect(bodyJSON.message).to.be.a(\"string\").and.not.empty;\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Americano\",\r\n  \"price\": 10000,\r\n  \"variations\": [\r\n    \"Arabica\",\r\n    \"Robusta\"\r\n  ],\r\n  \"category\": \"drink\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{createdMenuURL}}",
+							"host": [
+								"{{createdMenuURL}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Menu with Valid Payload",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code should be 204\", () => {\r",
+									"  pm.response.to.have.status(204);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response Content-Type header should be application/json\", () => {\r",
+									"  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response header should contain a Location URL redirecting to the updated data\", () => {\r",
+									"  pm.response.to.have.header(\"Location\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response should not returning any body data\", () => {\r",
+									"  pm.response.to.have.body(\"\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Fries\",\r\n  \"price\": 10000,\r\n  \"variations\": [\r\n    \"Salty\",\r\n    \"Paprika\",\r\n    \"Cheesy\"\r\n  ],\r\n  \"category\": \"snack\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{createdMenuURL}}",
+							"host": [
+								"{{createdMenuURL}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Menu with Empty Parameter",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code should be 405\", () => {\r",
+									"  pm.response.to.have.status(405);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response header Content-Type should be application/json\", () => {\r",
+									"  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response should have Allow header\", () => {\r",
+									"  pm.response.to.have.header(\"Allow\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body data should returning an error message within an object with only one property and key `message`\", () => {\r",
+									"  const bodyJSON = pm.response.json();\r",
+									"  pm.expect(bodyJSON).to.be.an(\"object\");\r",
+									"  pm.expect(Object.keys(bodyJSON).length).to.be.equal(1);\r",
+									"  pm.expect(bodyJSON).to.have.own.property(\"message\");\r",
+									"  pm.expect(bodyJSON.message).to.be.a(\"string\").and.not.empty;\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://{{host}}:{{port}}/menu/",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"menu",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Menu with Bad Parameter",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code should be 404\", () => {\r",
+									"  pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response header Content-Type should be application/json\", () => {\r",
+									"  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response should not returning any body data\", () => {\r",
+									"  pm.response.to.have.body(\"\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://{{host}}:{{port}}/menu/{{badURLParam}}",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"menu",
+								"{{badURLParam}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Menu with Wrong ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code should be 404\", () => {\r",
+									"  pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response header Content-Type should be application/json\", () => {\r",
+									"  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response should not returning any body data\", () => {\r",
+									"  pm.response.to.have.body(\"\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://{{host}}:{{port}}/menu/{{wrongMenuID}}",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"menu",
+								"{{wrongMenuID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Last Created Menu",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code should be 204\", () => {\r",
+									"  pm.response.to.have.status(204);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response header Content-Type should be application/json\", () => {\r",
+									"  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response should not returning any body data\", () => {\r",
+									"  pm.response.to.have.body(\"\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{createdMenuURL}}",
+							"host": [
+								"{{createdMenuURL}}"
+							]
+						}
 					},
 					"response": []
 				}

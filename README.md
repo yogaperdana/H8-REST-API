@@ -54,13 +54,31 @@ Execute the command line by line on the terminal according to one of the followi
     conda create --name restapi --file requirements.txt
     conda activate restapi
     ```
+## Database Setup
+
+Before running the app, create the database file and corresponding table by executing this command on the terminal:
+```sh
+python db_init.py
+```
+
+Then, check if a new file with name `database.db` has been created in the project's root directory. It's a SQLite3 database file.
 
 ## Run Application
+
+### Development Mode
+
+Run the app by executing this command on the terminal:
+```sh
+python app.py
+```
+
+Access the API documentation through a web browser with URL displayed on the terminal screen and point to directory `docs` (e.g. http://127.0.0.1:5000/docs/)
+
+### Production Mode
 
 Run the app by executing this command on the terminal:
 ```sh
 flask run
 ```
-or add `--debug` parameter to run with debug mode.
 
-Access the API documentation through a web browser with URL displayed on the terminal screen and point to directory `docs` (e.g. http://127.0.0.1:5000/docs/)
+Even though the project is not fully ready for production, you can try it out. Changes to the files will not take effect immediately unless the application is restarted manually.
