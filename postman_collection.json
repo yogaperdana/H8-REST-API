@@ -2,6 +2,7 @@
 	"info": {
 		"_postman_id": "63176112-8c62-438a-aa61-07afed50cb4f",
 		"name": "H8 Course: REST API Python",
+		"description": "**Author:** [Yoga Perdana Putra](https://s.id/yogapp)\n\n<br>\n\nThis test collection is used for the project [Learning REST API with Python](https://github.com/yogaperdana/H8-REST-API/).\n\nAny other documentation of the application, please refer to the [readme file](https://github.com/yogaperdana/H8-REST-API/blob/py/README.md) on project repository.\n\nIf you want to start the collection test runner, please select tests within folder based on project's version. For example, for the first commit version of project (v1.0), then select only tests on folder `v1.0 - Static Data`.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "15389470"
 	},
@@ -745,7 +746,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"description": "Test for API v1.0 using static data"
 		},
 		{
 			"name": "v1.1 - Database Stored",
@@ -1180,7 +1182,6 @@
 									"pm.test(\"Response body data should returning an object contain only specified properties\", () => {\r",
 									"  const bodyJSON = pm.response.json();\r",
 									"  const reqProps = JSON.parse(pm.collectionVariables.get(\"requiredProps\"));\r",
-									"  console.log(reqProps.length, reqProps);\r",
 									"  pm.expect(bodyJSON).to.be.an(\"object\");\r",
 									"  pm.expect(Object.keys(bodyJSON).length).to.equal(reqProps.length);\r",
 									"  reqProps.forEach((prop) => {\r",
@@ -1808,7 +1809,430 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"description": "Test for API v1.1 using data stored in a database"
+		},
+		{
+			"name": "v1.2 - Simple Authentication",
+			"item": [
+				{
+					"name": "Get All Menu Without Auth",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code should be 401\", () => {\r",
+									"  pm.response.to.have.status(401);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response header Content-Type should be application/json\", () => {\r",
+									"  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body data should returning an error message within an object contain only one property with key `message`\", () => {\r",
+									"  const bodyJSON = pm.response.json();\r",
+									"  pm.expect(bodyJSON).to.be.an(\"object\");\r",
+									"  pm.expect(Object.keys(bodyJSON).length).to.be.equal(1);\r",
+									"  pm.expect(bodyJSON).to.have.own.property(\"message\");\r",
+									"  pm.expect(bodyJSON.message).to.be.a(\"string\").and.not.empty;\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{host}}:{{port}}/menu",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"menu"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Menu With Invalid Auth",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code should be 401\", () => {\r",
+									"  pm.response.to.have.status(401);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response header Content-Type should be application/json\", () => {\r",
+									"  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body data should returning an error message within an object contain only one property with key `message`\", () => {\r",
+									"  const bodyJSON = pm.response.json();\r",
+									"  pm.expect(bodyJSON).to.be.an(\"object\");\r",
+									"  pm.expect(Object.keys(bodyJSON).length).to.be.equal(1);\r",
+									"  pm.expect(bodyJSON).to.have.own.property(\"message\");\r",
+									"  pm.expect(bodyJSON.message).to.be.a(\"string\").and.not.empty;\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1234567890",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{host}}:{{port}}/menu",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"menu"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Without Send Form Data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code should be 401\", () => {\r",
+									"  pm.response.to.have.status(401);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response header Content-Type should be application/json\", () => {\r",
+									"  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body data should returning an error message within an object contain only one property with key `message`\", () => {\r",
+									"  const bodyJSON = pm.response.json();\r",
+									"  pm.expect(bodyJSON).to.be.an(\"object\");\r",
+									"  pm.expect(Object.keys(bodyJSON).length).to.be.equal(1);\r",
+									"  pm.expect(bodyJSON).to.have.own.property(\"message\");\r",
+									"  pm.expect(bodyJSON.message).to.be.a(\"string\").and.not.empty;\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://{{host}}:{{port}}/auth/login",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login With Unknown Credential",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code should be 401\", () => {\r",
+									"  pm.response.to.have.status(401);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response header Content-Type should be application/json\", () => {\r",
+									"  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body data should returning an error message within an object contain only one property with key `message`\", () => {\r",
+									"  const bodyJSON = pm.response.json();\r",
+									"  pm.expect(bodyJSON).to.be.an(\"object\");\r",
+									"  pm.expect(Object.keys(bodyJSON).length).to.be.equal(1);\r",
+									"  pm.expect(bodyJSON).to.have.own.property(\"message\");\r",
+									"  pm.expect(bodyJSON.message).to.be.a(\"string\").and.not.empty;\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "anonymous",
+									"description": "unknown username",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"description": "wrong password",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/auth/login",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login With Wrong Password",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code should be 401\", () => {\r",
+									"  pm.response.to.have.status(401);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response header Content-Type should be application/json\", () => {\r",
+									"  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body data should returning an error message within an object contain only one property with key `message`\", () => {\r",
+									"  const bodyJSON = pm.response.json();\r",
+									"  pm.expect(bodyJSON).to.be.an(\"object\");\r",
+									"  pm.expect(Object.keys(bodyJSON).length).to.be.equal(1);\r",
+									"  pm.expect(bodyJSON).to.have.own.property(\"message\");\r",
+									"  pm.expect(bodyJSON.message).to.be.a(\"string\").and.not.empty;\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "admin",
+									"description": "existing user name",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "idontknow",
+									"description": "wrong password",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/auth/login",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login With Valid Credential",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code should be 200\", () => {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response Content-Type header should be application/json\", () => {\r",
+									"  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body data should contain generated token\", () => {\r",
+									"  try {\r",
+									"    const bodyJSON = pm.response.json();\r",
+									"    pm.expect(bodyJSON).to.be.an(\"object\");\r",
+									"    pm.expect(Object.keys(bodyJSON).length).to.be.equal(1);\r",
+									"    pm.expect(bodyJSON).to.have.own.property(\"token\");\r",
+									"    if (pm.expect(bodyJSON.token).to.be.a(\"string\").and.not.empty)\r",
+									"      pm.collectionVariables.set(\"token\", bodyJSON.token);\r",
+									"  } catch(e) {\r",
+									"    pm.execution.setNextRequest(null);\r",
+									"    pm.expect.fail(e.message);\r",
+									"  }\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "{{username}}",
+									"description": "valid username",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "{{password}}",
+									"description": "valid password",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/auth/login",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Menu With Valid Auth",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code should be 200\", () => {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response header Content-Type should be application/json\", () => {\r",
+									"  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body data should returning an empty array\", () => {\r",
+									"  pm.expect(pm.response.json()).to.be.an(\"array\").and.lengthOf(0);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{host}}:{{port}}/menu",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"menu"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Test for API v1.2 using simple authentication method to access the API"
 		}
 	],
 	"event": [
@@ -1862,6 +2286,21 @@
 		{
 			"key": "wrongMenuID",
 			"value": "9999",
+			"type": "string"
+		},
+		{
+			"key": "username",
+			"value": "admin",
+			"type": "string"
+		},
+		{
+			"key": "password",
+			"value": "admin",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "",
 			"type": "string"
 		}
 	]

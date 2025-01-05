@@ -1,13 +1,9 @@
 """Database Model for Menu"""
 # pylint: disable=broad-exception-caught
 import json
-from flask import Response
 from flask_restx import fields
-from flask_sqlalchemy import SQLAlchemy
-from config import app
-
-db = SQLAlchemy(app)
-app.app_context().push()
+from config import db
+from helper import response_json, response_none
 
 class MenuModel(db.Model):
     """Database model for menu"""
@@ -22,29 +18,30 @@ class MenuModel(db.Model):
     api_model = {
         "name": "Menu Model",
         "model": {
-            "id_menu": fields.Integer(
-                description="ID of the menu"
-            ),
             "name": fields.String(
                 required=True,
                 description="Name of the menu",
-                help="Name cannot be blank"
+                help="Name cannot be blank",
+                default="New Menu"
             ),
             "price": fields.Integer(
                 required=True,
                 description="Price of the menu",
-                help="Price cannot be blank and must be in integer/number"
+                help="Price cannot be blank and must be in integer/number",
+                default=10000
             ),
             "variations": fields.List(
                 fields.String(),
                 required=True,
                 description="Variation(s) of the menu",
-                help="Variation(s) cannot be blank"
+                help="Variation(s) cannot be blank",
+                default="[]"
             ),
             "category": fields.String(
                 required=True,
                 description="Category of the menu",
-                help="Category cannot be blank"
+                help="Category cannot be blank",
+                default="food"
             )
         }
     }
@@ -56,11 +53,11 @@ class MenuModel(db.Model):
         self.category = str(category)
 
     def __repr__(self):
-        """Object representation as JSON"""
-        return json.dumps(self.json())
+        """Object representation as JSON string"""
+        return json.dumps(self.format_object())
 
-    def json(self):
-        """Format object to JSON"""
+    def format_object(self):
+        """Object formatting"""
         return {
             "id_menu": self.id_menu,
             "name": self.name,
@@ -77,30 +74,30 @@ class MenuModel(db.Model):
     @staticmethod
     def get_all():
         """Get all menu"""
-        return [MenuModel.json(menu) for menu in MenuModel.query.all()]
+        return [MenuModel.format_object(menu) for menu in MenuModel.query.all()]
 
     @staticmethod
     def get_by_id(id_menu):
         """Get single menu by id"""
         menu_to_select = MenuModel.query.get(id_menu)
         if menu_to_select:
-            return MenuModel.json(menu_to_select)
-        return Response(response=None, status=404, content_type="application/json")
+            return MenuModel.format_object(menu_to_select)
+        return response_none(404)
 
     @staticmethod
     def create(payload):
         """Add new menu"""
         if MenuModel.check_unique_name(payload["name"]):
-            return Response(response=json.dumps({
-                "message": "The name has already been used. Please use another."
-            }), status=409, content_type="application/json")
+            return response_json(
+                {"message": "The name has already been used. Please use another."}, 409
+            )
         try:
             menu_to_create = MenuModel(
                 payload["name"], payload["price"], payload["variations"], payload["category"]
             )
             db.session.add(menu_to_create)
             db.session.commit()
-            response = Response(status=201, content_type="application/json")
+            response = response_none(201)
             response.location = menu_to_create.id_menu
             response.autocorrect_location_header = True
             return response
@@ -113,13 +110,13 @@ class MenuModel(db.Model):
         """Update menu"""
         menu_to_update = MenuModel.query.get(id_menu)
         if menu_to_update is None:
-            return Response(status=404, content_type="application/json")
+            return response_none(404)
         name_changed = payload["name"] != menu_to_update.name
         name_used = MenuModel.check_unique_name(payload["name"])
         if name_changed and name_used:
-            return Response(response=json.dumps({
-                "message": "The name has already been used. Please use another."
-            }), status=409, content_type="application/json")
+            return response_json(
+                {"message": "The name has already been used. Please use another."}, 409
+            )
         try:
             payload_format = MenuModel(
                 payload["name"], payload["price"], payload["variations"], payload["category"]
@@ -129,7 +126,7 @@ class MenuModel(db.Model):
             menu_to_update.variations = payload_format.variations
             menu_to_update.category = payload_format.category
             db.session.commit()
-            response = Response(status=204, content_type="application/json")
+            response = response_none(204)
             response.location = menu_to_update.id_menu
             response.autocorrect_location_header = True
             return response
@@ -142,11 +139,11 @@ class MenuModel(db.Model):
         """Delete single menu by id"""
         menu_to_delete = MenuModel.query.get(id_menu)
         if menu_to_delete is None:
-            return Response(status=404, content_type="application/json")
+            return response_none(404)
         try:
             db.session.delete(menu_to_delete)
             db.session.commit()
-            return Response(status=204, content_type="application/json")
+            return response_none(204)
         except Exception as e:
             db.session.rollback()
             raise e
