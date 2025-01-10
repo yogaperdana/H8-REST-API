@@ -1,0 +1,750 @@
+{
+	"info": {
+		"_postman_id": "15c4376a-c177-4a17-abc3-f43e0597c7ad",
+		"name": "H8 Course: REST API GO",
+		"description": "**Author:** [Yoga Perdana Putra](https://s.id/yogapp)\n\n<br>\n\nThis test collection is used for the project [Learning REST API with GO](https://github.com/yogaperdana/H8-REST-API/).\n\nAny other documentation of the application, please refer to the [readme file](https://github.com/yogaperdana/H8-REST-API/blob/go/README.md) on project repository.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15389470"
+	},
+	"item": [
+		{
+			"name": "Get All Products",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code should be 200 (OK)\", () => {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response header Content-Type should be application/json\", () => {\r",
+							"  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Each array item should contain object with only specified properties\", () => {\r",
+							"  const reqProps = JSON.parse(pm.collectionVariables.get(\"reqFields\"));\r",
+							"  pm.response.json().forEach((item) => {\r",
+							"    pm.expect(item).to.be.an(\"object\");\r",
+							"    pm.expect(Object.keys(item).length).to.equal(reqProps.length);\r",
+							"    reqProps.forEach((prop) => {\r",
+							"      pm.expect(item).to.have.own.property(prop);\r",
+							"    });\r",
+							"  });\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{host}}:{{port}}/product",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Product with Empty Payload",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code should be 400 (Bad Request)\", () => {\r",
+							"  pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response Content-Type header should be application/json\", () => {\r",
+							"  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response body data should returning an error message within an object with only one property and key `message`\", () => {\r",
+							"  const bodyJSON = pm.response.json();\r",
+							"  pm.expect(bodyJSON).to.be.an(\"object\");\r",
+							"  pm.expect(Object.keys(bodyJSON).length).to.be.equal(1);\r",
+							"  pm.expect(bodyJSON).to.have.own.property(\"message\");\r",
+							"  pm.expect(bodyJSON.message).to.be.a(\"string\").and.not.empty;\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://{{host}}:{{port}}/product",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Product with Bad Payload",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code should be 400 (Bad Request)\", () => {\r",
+							"  pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response Content-Type header should be application/json\", () => {\r",
+							"  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response body data should returning an error message within an object with only one property and key `message`\", () => {\r",
+							"  const bodyJSON = pm.response.json();\r",
+							"  pm.expect(bodyJSON).to.be.an(\"object\");\r",
+							"  pm.expect(Object.keys(bodyJSON).length).to.be.equal(1);\r",
+							"  pm.expect(bodyJSON).to.have.own.property(\"message\");\r",
+							"  pm.expect(bodyJSON.message).to.be.a(\"string\").and.not.empty;\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": 999,\r\n  \"desc\": 999,\r\n  \"price\": \"999\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{host}}:{{port}}/product",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Product with Valid Payload",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code should be 201 (Created)\", () => {\r",
+							"  pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response Content-Type header should be application/json\", () => {\r",
+							"  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response header should contain a Location URL redirecting to the created data\", () => {\r",
+							"  pm.response.to.have.header(\"Location\");\r",
+							"  pm.collectionVariables.set(\"newItemURL\", pm.response.headers.get(\"Location\"));\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response should not returning any body data\", () => {\r",
+							"  pm.response.to.have.body(\"\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Coffee\",\r\n  \"desc\": \"Calming\",\r\n  \"price\": 10000,\r\n  \"type\": \"drink\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{host}}:{{port}}/product",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read The Created Product",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code should be 200 (OK)\", () => {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response header Content-Type should be application/json\", () => {\r",
+							"  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response body data should returning an object contain only specified properties\", () => {\r",
+							"  const bodyJSON = pm.response.json();\r",
+							"  const reqProps = JSON.parse(pm.collectionVariables.get(\"reqFields\"));\r",
+							"  console.log(reqProps.length, reqProps);\r",
+							"  pm.expect(bodyJSON).to.be.an(\"object\");\r",
+							"  pm.expect(Object.keys(bodyJSON).length).to.equal(reqProps.length);\r",
+							"  reqProps.forEach((prop) => {\r",
+							"    pm.expect(bodyJSON).to.have.own.property(prop);\r",
+							"  });\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{newItemURL}}",
+					"host": [
+						"{{newItemURL}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Product with Wrong ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code should be 404 (Not Found)\", () => {\r",
+							"  pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response header Content-Type should be application/json\", () => {\r",
+							"  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response should not returning any body data\", () => {\r",
+							"  pm.response.to.have.body(\"\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{host}}:{{port}}/product/9999",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"product",
+						"9999"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Product with Bad Parameter",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code should be 404 (Not Found)\", () => {\r",
+							"  pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response header Content-Type should be application/json\", () => {\r",
+							"  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response should not returning any body data\", () => {\r",
+							"  pm.response.to.have.body(\"\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{host}}:{{port}}/product/unknown",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"product",
+						"unknown"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit Product with Wrong ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code should be 404 (Not Found)\", () => {\r",
+							"  pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response header Content-Type should be application/json\", () => {\r",
+							"  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response should not returning any body data\", () => {\r",
+							"  pm.response.to.have.body(\"\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://{{host}}:{{port}}/product/9999",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"product",
+						"9999"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit Product with Bad Parameter",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code should be 404 (Not Found)\", () => {\r",
+							"  pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response header Content-Type should be application/json\", () => {\r",
+							"  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response should not returning any body data\", () => {\r",
+							"  pm.response.to.have.body(\"\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://{{host}}:{{port}}/product/unknown",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"product",
+						"unknown"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit Product with Empty Payload",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code should be 400 (Bad Request)\", () => {\r",
+							"  pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response Content-Type header should be application/json\", () => {\r",
+							"  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response body data should returning an error message within an object with only one property and key `message`\", () => {\r",
+							"  const bodyJSON = pm.response.json();\r",
+							"  pm.expect(bodyJSON).to.be.an(\"object\");\r",
+							"  pm.expect(Object.keys(bodyJSON).length).to.be.equal(1);\r",
+							"  pm.expect(bodyJSON).to.have.own.property(\"message\");\r",
+							"  pm.expect(bodyJSON.message).to.be.a(\"string\").and.not.empty;\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{newItemURL}}",
+					"host": [
+						"{{newItemURL}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit Product with Bad Payload",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code should be 400 (Bad Request)\", () => {\r",
+							"  pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response Content-Type header should be application/json\", () => {\r",
+							"  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response body data should returning an error message within an object with only one property and key `message`\", () => {\r",
+							"  const bodyJSON = pm.response.json();\r",
+							"  pm.expect(bodyJSON).to.be.an(\"object\");\r",
+							"  pm.expect(Object.keys(bodyJSON).length).to.be.equal(1);\r",
+							"  pm.expect(bodyJSON).to.have.own.property(\"message\");\r",
+							"  pm.expect(bodyJSON.message).to.be.a(\"string\").and.not.empty;\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": 999,\r\n  \"desc\": 999,\r\n  \"price\": \"999\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{newItemURL}}",
+					"host": [
+						"{{newItemURL}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit Product with Valid Payload",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code should be 201 (Created)\", () => {\r",
+							"  pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response Content-Type header should be application/json\", () => {\r",
+							"  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response header should contain a Location URL redirecting to the updated data\", () => {\r",
+							"  pm.response.to.have.header(\"Location\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response should not returning any body data\", () => {\r",
+							"  pm.response.to.have.body(\"\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Americano\",\r\n  \"desc\": \"A type of coffee drink prepared by diluting an espresso shot with hot water at a 1:3 ratio\",\r\n  \"price\": 8000,\r\n  \"type\": \"coffee\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{newItemURL}}",
+					"host": [
+						"{{newItemURL}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Product with Wrong ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code should be 404 (Not Found)\", () => {\r",
+							"  pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response header Content-Type should be application/json\", () => {\r",
+							"  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response should not returning any body data\", () => {\r",
+							"  pm.response.to.have.body(\"\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://{{host}}:{{port}}/product/9999",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"product",
+						"9999"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Product with Bad Parameter",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code should be 404 (Not Found)\", () => {\r",
+							"  pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response header Content-Type should be application/json\", () => {\r",
+							"  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response should not returning any body data\", () => {\r",
+							"  pm.response.to.have.body(\"\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://{{host}}:{{port}}/product/unknown",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"product",
+						"unknown"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Last Created Product",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code should be 204 (No Content)\", () => {\r",
+							"  pm.response.to.have.status(204);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response header Content-Type should be application/json\", () => {\r",
+							"  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response should not returning any body data\", () => {\r",
+							"  pm.response.to.have.body(\"\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{newItemURL}}",
+					"host": [
+						"{{newItemURL}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "127.0.0.1",
+			"type": "string"
+		},
+		{
+			"key": "port",
+			"value": "5000",
+			"type": "string"
+		},
+		{
+			"key": "reqFields",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "newItemURL",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
